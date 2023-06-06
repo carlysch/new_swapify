@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "845208516485",
+    "project_id": "swapify-e525c",
+    "storage_bucket": "swapify-e525c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845208516485:android:e61b107641337e43f1b6ec",
+        "android_client_info": {
+          "package_name": "com.example.new_swapify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845208516485-dolh64pnbgopb115rprl8mu5mvfpomog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpEFNo16d0p0FWLjte0Vhk646lJ-xE7HU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845208516485-dolh64pnbgopb115rprl8mu5mvfpomog.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
