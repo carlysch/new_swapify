@@ -30,12 +30,12 @@ import com.example.new_swapify.ui.theme.New_swapifyTheme
 
 @Composable
 fun SongScreen(
-    songViewModel: SongViewModel = viewModel()
+    songViewModel: MockViewModel = viewModel()
 ) {
     val userList = songViewModel.data.value.toString()
       Column(horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxWidth()) {
-          Text(text = userList)
+          Text("Check what songs others are listening too....")
       }
 }
 @Preview(showBackground = true)
