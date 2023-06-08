@@ -1,6 +1,7 @@
 package com.example.new_swapify.ui
 
 import android.content.Intent
+import android.net.Uri
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -20,10 +22,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.new_swapify.R
@@ -82,11 +91,39 @@ fun ConnectScreen(spotifyActivityResultLauncher: ActivityResultLauncher<Intent>)
             Text(text = "connect")
         }
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
-        Text(
-            text = stringResource(R.string.install),
-            style = MaterialTheme.typography.body1,
-            color = MaterialTheme.colors.surface
+        val normalText = "don't forget to "
+        val underlinedText = "install spotify"
 
+        val annotatedString = AnnotatedString.Builder().apply {
+            // add normal text with the style, but no underline
+            pushStyle(
+                style = SpanStyle(
+                    color = MaterialTheme.colors.surface,
+                    fontSize = MaterialTheme.typography.subtitle2.fontSize
+                )
+            )
+            append(normalText)
+            pop()
+
+            // add the underlined text with the style
+            pushStyle(
+                style = SpanStyle(
+                    textDecoration = TextDecoration.Underline,
+                    color = MaterialTheme.colors.surface,
+                    fontSize = MaterialTheme.typography.subtitle2.fontSize,
+                )
+            )
+            append(underlinedText)
+            pop()
+        }.toAnnotatedString()
+        ClickableText(
+            text = annotatedString,
+            onClick = { offset ->
+                val url = "https://play.google.com/store/apps/details?id=com.spotify.music"
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(url)
+                context.startActivity(intent)
+            },
         )
     }
 
