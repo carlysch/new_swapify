@@ -49,15 +49,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             val currentTheme = isSystemInDarkTheme()
 
-            My_Theme{
+            My_Theme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {
-                    ConnectScreen()
+                    ConnectScreen(spotifyActivityResultLauncher)
                 }
-            New_swapifyTheme {
-                ConnectScreen(spotifyActivityResultLauncher)
             }
         }
     }
