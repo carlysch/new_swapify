@@ -3,10 +3,17 @@ package com.example.new_swapify
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import com.example.new_swapify.ui.CLIENT_ID
+import com.example.new_swapify.ui.ConnectScreen
 import com.example.new_swapify.ui.REDIRECT_URI
 import com.example.new_swapify.ui.REQUEST_CODE
+import com.example.new_swapify.ui.SongScreen
+import com.example.new_swapify.ui.theme.My_Theme
 import com.spotify.sdk.android.auth.AuthorizationClient
 import com.spotify.sdk.android.auth.AuthorizationRequest
 import com.spotify.sdk.android.auth.AuthorizationResponse
@@ -17,6 +24,18 @@ class SpotifyLoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         initiateSpotifyAuthorization()
+        setContent {
+            val currentTheme = isSystemInDarkTheme()
+
+            My_Theme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    color = MaterialTheme.colors.background
+                ) {
+                    SongScreen()
+                }
+            }
+        }
     }
 
     private fun initiateSpotifyAuthorization() {
