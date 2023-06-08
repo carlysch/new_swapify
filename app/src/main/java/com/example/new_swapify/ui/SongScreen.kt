@@ -26,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.new_swapify.R
-import com.example.new_swapify.ui.theme.New_swapifyTheme
+import com.example.new_swapify.ui.theme.My_Theme
 
 @Composable
 fun SongScreen(
@@ -41,7 +41,7 @@ fun SongScreen(
 @Preview(showBackground = true)
 @Composable
 fun GmeScreenPreview() {
-    New_swapifyTheme {
+    My_Theme {
         SongScreen()
     }
 }

@@ -14,17 +14,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.new_swapify.ui.ConnectScreen
-import com.example.new_swapify.ui.theme.New_swapifyTheme
+import com.example.new_swapify.ui.theme.My_Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val currentTheme = isSystemInDarkTheme()
-            val toggleTheme: () -> Unit = {
-                if (currentTheme) setDayTheme() else setDarkTheme()
-            }
-            New_swapifyTheme {
+
+            My_Theme{
                 // A surface container using the 'background' color from the theme
                 Surface(
                     color = MaterialTheme.colors.background
@@ -47,7 +45,7 @@ class MainActivity : ComponentActivity() {
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {
-    New_swapifyTheme(darkTheme = true) {
+    My_Theme() {
         ConnectScreen()
     }
 }
