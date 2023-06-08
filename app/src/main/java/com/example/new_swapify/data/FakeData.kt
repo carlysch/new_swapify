@@ -4,5 +4,5 @@ data class FakeData(
     val user: String = "",
     val title: String = "",
     val artist: String = "",
-    val cover: String = "",
+    val cover: Int = 0,
 )
