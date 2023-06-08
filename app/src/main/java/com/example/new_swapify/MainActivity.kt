@@ -1,6 +1,7 @@
 package com.example.new_swapify
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -28,6 +29,11 @@ import com.spotify.sdk.android.auth.AuthorizationResponse
 
 class MainActivity : ComponentActivity() {
     private lateinit var spotifyActivityResultLauncher: ActivityResultLauncher<Intent>
+
+//    // this is how to retrieve the token from local storage. don't know where this should go so I am putting it here.
+//    val sharedPreferences = getSharedPreferences("com.example.new_swapify", Context.MODE_PRIVATE)
+//    val token = sharedPreferences.getString("SPOTIFY_ACCESS_TOKEN", null)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

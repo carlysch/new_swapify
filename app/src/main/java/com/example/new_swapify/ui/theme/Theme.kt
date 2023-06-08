@@ -45,7 +45,7 @@ private val LightColorScheme = lightColors(
 
 @Composable
 fun New_swapifyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
-    val colors = if (darkTheme) {
+    val colors = if (true) {
         DarkColorScheme
     } else {
         LightColorScheme
