@@ -20,9 +20,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.new_swapify.ui.CLIENT_ID
 import com.example.new_swapify.ui.ConnectScreen
+import com.example.new_swapify.ui.theme.My_Theme
 import com.example.new_swapify.ui.REDIRECT_URI
 import com.example.new_swapify.ui.REQUEST_CODE
-import com.example.new_swapify.ui.theme.New_swapifyTheme
 import com.spotify.sdk.android.auth.AuthorizationClient
 import com.spotify.sdk.android.auth.AuthorizationRequest
 import com.spotify.sdk.android.auth.AuthorizationResponse
@@ -47,6 +47,15 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
+            val currentTheme = isSystemInDarkTheme()
+
+            My_Theme{
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    color = MaterialTheme.colors.background
+                ) {
+                    ConnectScreen()
+                }
             New_swapifyTheme {
                 ConnectScreen(spotifyActivityResultLauncher)
             }
@@ -62,11 +71,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 //@ExperimentalAnimationApi
 //@Preview("Dark Theme", widthDp = 360, heightDp = 640)
 //@Composable
 //fun DarkPreview() {
-//    New_swapifyTheme(darkTheme = true) {
+//    My_Theme() {
 //        ConnectScreen()
 //    }
 //}

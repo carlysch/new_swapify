@@ -1,4 +1,5 @@
 package com.example.new_swapify.ui.theme
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -18,7 +19,7 @@ val typography = Typography(
     h4 = TextStyle(
         fontFamily = Inconsolata,
         fontWeight = FontWeight.W600,
-        fontSize = 30.sp
+        fontSize = 30.sp,
     ),
     h5 = TextStyle(
         fontFamily = Inconsolata,
